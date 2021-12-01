@@ -8,7 +8,7 @@ export default function Router() {
     <BrowserRouter>
       <Switch>
         <Route path="/:coinId">
-          <Coin></Coin>
+          <Coin />
         </Route>
         <Route path="/">
           <Coins></Coins>
