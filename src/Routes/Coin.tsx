@@ -82,13 +82,40 @@ export default function Coin() {
 
       setInfo(infoData);
       setPriceInfo(priceData);
+      setLoading(false);
     })();
-  }, []);
-
+  }, [coinId]);
   return (
     <>
       <CoinName>{state?.name || "Loading..."}</CoinName>
       {loading ? <Loading>Loading...</Loading> : null}
+      <CoinContainer>
+        <OverView>
+          <OverviewItem>
+            <span>Rank</span>
+            <span>{info?.rank}</span>
+          </OverviewItem>
+          <OverviewItem>
+            <span>Symbol</span>
+            <span>{info?.symbol}</span>
+          </OverviewItem>
+          <OverviewItem>
+            <span>OPEN SOURCE</span>
+            <span>{info?.open_source ? "Yes" : "No"}</span>
+          </OverviewItem>
+        </OverView>
+        <Description>{info?.description}</Description>
+        <OverView>
+          <OverviewItem>
+            <span>Total Suply:</span>
+            <span>{priceInfo?.total_supply}</span>
+          </OverviewItem>
+          <OverviewItem>
+            <span>Max Supply:</span>
+            <span>{priceInfo?.max_supply}</span>
+          </OverviewItem>
+        </OverView>
+      </CoinContainer>
     </>
   );
 }
@@ -108,4 +135,34 @@ const CoinName = styled.div`
   font-size: 50px;
   color: ${(props) => props.theme.accentColor};
   margin-top: 30px;
+`;
+
+const CoinContainer = styled.div`
+  padding: 20px;
+`;
+
+const OverView = styled.div`
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 10px 20px;
+`;
+
+const OverviewItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  span:first-child {
+    font-size: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  span {
+    text-align: center;
+  }
+`;
+
+const Description = styled.p`
+  margin: 20px 0px;
 `;
