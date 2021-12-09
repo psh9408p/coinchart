@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import { fetchCoins } from "../api";
-
 interface ICoin {
   id: string;
   name: string;
@@ -29,6 +29,9 @@ export default function Coins() {
 
   return (
     <Container>
+      <Helmet>
+        <title>CoinList</title>
+      </Helmet>
       <Header>
         <Title>코인</Title>
       </Header>
@@ -84,7 +87,7 @@ const Coin = styled.li`
   background-color: white;
   padding: 20px;
   margin-bottom: 10px;
-  color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.accentColor};
   a {
     transition: color 0.2s ease-in;
     display: flex;
