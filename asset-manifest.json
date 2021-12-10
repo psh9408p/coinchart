@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/coinchart.git/static/js/main.70d92664.chunk.js",
+    "main.js.map": "/coinchart.git/static/js/main.70d92664.chunk.js.map",
+    "runtime-main.js": "/coinchart.git/static/js/runtime-main.1ab9ae16.js",
+    "runtime-main.js.map": "/coinchart.git/static/js/runtime-main.1ab9ae16.js.map",
+    "static/js/2.4923068f.chunk.js": "/coinchart.git/static/js/2.4923068f.chunk.js",
+    "static/js/2.4923068f.chunk.js.map": "/coinchart.git/static/js/2.4923068f.chunk.js.map",
+    "index.html": "/coinchart.git/index.html",
+    "static/js/2.4923068f.chunk.js.LICENSE.txt": "/coinchart.git/static/js/2.4923068f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1ab9ae16.js",
+    "static/js/2.4923068f.chunk.js",
+    "static/js/main.70d92664.chunk.js"
+  ]
+}
