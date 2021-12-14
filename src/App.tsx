@@ -4,6 +4,8 @@ import Router from "./Router";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./theme";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { isDark } from "./atoms";
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
 html, body, div, span, applet, object, iframe,
@@ -69,16 +71,16 @@ a{
 `;
 
 function App() {
-  const [Theme, setTheme] = useState(true);
-  const themeToggle = () => {
-    setTheme((Theme) => !Theme);
-  };
+  const isDarkTheme = useRecoilValue(isDark);
+  const setDarkAtom = useSetRecoilState(isDark);
+  const toggleAtom = () => setDarkAtom((prev) => !prev);
+
   return (
     <>
-      <ThemeProvider theme={Theme ? darkTheme : lightTheme}>
+      <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
         <GlobalStyle />
         <div>
-          <button onClick={themeToggle}>ThemeToggle</button>
+          <button onClick={toggleAtom}>ThemeToggle</button>
         </div>
         <Router />
         <ReactQueryDevtools initialIsOpen={false} />
